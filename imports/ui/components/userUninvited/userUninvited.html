@@ -1,0 +1,12 @@
+<h4 class="md-headline">
+    Users to invite:
+</h4>
+
+<md-input-container>
+    <md-button ng-repeat="user in userUninvited.users | uninvitedFilter:userUninvited.branch" ng-click="userUninvited.invite(user)">
+        <p>{{ user | displayNameFilter }}</p>
+    </md-button>
+    <md-button ng-if="(userUninvited.users | uninvitedFilter:userUninvited.branch).length <= 0">
+        Everyone are already invited.
+    </md-button>
+</md-input-container>

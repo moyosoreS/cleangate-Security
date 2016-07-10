@@ -1,0 +1,43 @@
+<div>
+<div>
+    <md-input-container>
+        <label>
+            Branch Id:
+        </label>
+        <input type="text" ng-model="branchAdd.branch.id"/>
+    </md-input-container>
+    <md-input-container>
+        <label>
+            Street:
+        </label>
+        <input type="text" ng-model="branchAdd.branch.street"/>
+    </md-input-container>
+    <md-input-container>
+        <label>
+            State:
+        </label>
+        <input type="text" ng-model="branchAdd.branch.state"/>
+    </md-input-container>
+    <md-input-container>
+        <label>
+            Telephone:
+        </label>
+        <input type="text" ng-model="branchAdd.branch.tel"/>
+    </md-input-container>
+
+    <md-input-container>
+        <label>
+            Public?
+        </label>
+        <input type="checkbox" ng-model="branchAdd.branch.public" />
+    </md-input-container>
+</div>
+
+
+<div>
+    <md-button ng-click="branchAdd.submit()" class="md-primary md-raised">Add Branch!</md-button>
+</div>
+    <branch-upload files="branchAdd.branch.images"></branch-upload>
+</div>
+
+

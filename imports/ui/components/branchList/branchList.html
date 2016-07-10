@@ -1,0 +1,74 @@
+<div layout="column" layout-padding="4">
+
+    <branch-add ng-show="branchList.isLoggedIn"></branch-add>
+
+    <div ng-hide="branchList.isLoggedIn">
+      <i>Log in to create a branch!</i>
+    </div>
+
+    <br><br>
+
+    <div flex layout="row" layout-padding>
+        <md-input-container>
+            <label>Search Branch</label>
+            <input ng-model="branchList.searchText">
+        </md-input-container>
+
+    </div>
+    <branch-sort on-change="branchList.sortChanged(sort)" property="id" order="1"></branch-sort>
+    <div layout="column" layout-gt-sm="row">
+    <table cellspacing="8" cellpadding="8" border="2" class="branches">
+    <tbody>
+    <tr>
+    <th>Branch ID</th>
+    <th>Street</th>
+    <th>State</th>
+    <th>Telephone</th>
+        <th>Branch Details</th>
+        <th>Remove</th>
+        <th>Branch Creator</th>
+        <th>RSVP</th>
+    </tr>
+    <tr dir-paginate="branch in branchList.branches | itemsPerPage: branchList.perPage" total-items="branchList.branchesCount">
+        <td>
+            {{branch.id}}
+        </td>
+        <td>
+            {{branch.street}}
+        </td>
+        <td>
+            {{branch.state}}
+        </td>
+        <td>
+            {{branch.tel}}
+        </td>
+        <td>
+            <a ui-sref="branchDetails({ branchId: branch.id })">
+                {{branch.state}}
+            </a>
+        </td>
+        <td>
+            <branch-remove branch="branch" ng-show="branchList.isOwner(branch)"></branch-remove>
+        </td>
+        <td>
+            <branch-creator branch="branch"></branch-creator>
+        </td>
+        <td>
+            <user-rsvp  branch="branch" ng-show="branchList.isLoggedIn"></user-rsvp>
+            <div class="alert alert-warning" role="alert" ng-hide="branchList.isLoggedIn">
+                <strong>Warning!</strong>
+                Sign in to RSVP for this branch!
+            </div>
+        </td>
+
+    </tr>
+    </tbody>
+
+    </table>
+
+</div>
+    <dir-pagination-controls on-page-change="branchList.pageChanged(newPageNumber)"></dir-pagination-controls>
+</div>
+
+
+

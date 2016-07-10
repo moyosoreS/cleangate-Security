@@ -1,0 +1,5 @@
+<div ng-repeat="rsvp in rsvpUsers.rsvps | filter:{ rsvp: rsvpUsers.type }">
+    {{ rsvpUsers.getUserById(rsvp.user) | displayNameFilter }}
+    -
+    {{ rsvpUsers.type }}
+</div>

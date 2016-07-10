@@ -1,0 +1,49 @@
+<div layout="column" layout-padding>
+    <div>
+        <form>
+            <md-input-container>
+                <label>Branch Id</label>
+                <input ng-model="branchDetails.branch.id" ng-disabled="!branchDetails.isLoggedIn">
+            </md-input-container>
+
+            <md-input-container>
+                <label>Street</label>
+                <input ng-model="branchDetails.branch.street" ng-disabled="!branchDetails.isLoggedIn">
+            </md-input-container>
+
+            <md-input-container>
+                <label>State</label>
+                <input ng-model="branchDetails.branch.state" ng-disabled="!branchDetails.isLoggedIn">
+            </md-input-container>
+
+            <md-input-container>
+                <label>Telephone</label>
+                <input ng-model="branchDetails.branch.tel" ng-disabled="!branchDetails.isLoggedIn">
+            </md-input-container>
+
+
+            <md-input-container>
+                <label> Public Branch?</label>
+                <input type="checkbox" ng-model="branchDetails.branch.public" ng-disabled="!branchDetails.isLoggedIn"/>
+            </md-input-container>
+
+
+            <div>
+                <md-button ng-click="branchDetails.save()" class="md-primary md-raised">Update Branch</md-button>
+            </div>
+        </form>
+
+    </div>
+<div>
+    <user-uninvited branch="branchDetails.branch" ng-show="branchDetails.canInvite()"></user-uninvited>
+</div>
+
+</div>
+
+<br><br>
+<ul>
+    Users:
+    <li ng-repeat="user in branchDetails.users">
+        <div>{{ user.emails[0].address }}</div>
+    </li>
+</ul>
