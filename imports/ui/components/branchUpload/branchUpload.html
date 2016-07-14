@@ -15,4 +15,24 @@
         </div>
         <div>You can also drop image to here</div>
     </div>
+
+    <div ng-show="branchUpload.cropImgSrc" layout="column" class="ng-crop">
+    <div>
+        <h3>Edit &amp; crop</h3>
+        <md-button ng-click="branchUpload.save()">
+            Save Image
+        </md-button>
+        <md-button ng-click="branchUpload.reset()">
+            Cancel
+        </md-button>
+    </div>
+        <div class="ng-crop-container">
+            <img-crop image="branchUpload.cropImgSrc" result-image="branchUpload.myCroppedImage" area-type="square"></img-crop>
+        </div>
+    </div>
+</div>
+<div layout="row" class="images-container-title" sv-root sv-part="branchUpload.thumbs">
+    <div  class="branch-image-container" ng-class="{'main-image': $index === 0}" ng-repeat="thumb in branchUpload.thumbs">
+        <img draggable="false" ng-src="{{ thumb }}"/>
+    </div>
 </div>

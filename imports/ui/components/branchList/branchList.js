@@ -14,6 +14,7 @@ import {name as BranchRemove} from '../branchRemove/branchRemove';
 import {name as BranchCreator} from '../branchCreator/branchCreator';
 import {name as UserRsvp} from '../userRsvp/userRsvp';
 import {name as UserRsvpsList} from '../userRsvpsList/userRsvpsList';
+import {name as BranchImage} from '../branchImage/branchImage';
 
 
 class BranchList{
@@ -22,7 +23,7 @@ class BranchList{
         $reactive(this).attach($scope);     // Better way to code controller without having to invoke scope directly
 
         this.perPage = 3;
-        this.page = 9;
+        this.page = 10;
         this.sort = {
             id: 1
         };
@@ -36,6 +37,7 @@ class BranchList{
         ]);
 
         this.subscribe('users');
+        this.subscribe('images');
 
         this.helpers({            // helpers help connect to database (Mongo)
             branches(){
@@ -64,6 +66,7 @@ class BranchList{
     }
     
     sortChanged(sort) {
+        this.page = parseInt(1);
         this.sort = sort;
     }
 }
@@ -79,7 +82,8 @@ export default angular.module(name, [
     BranchAdd,
     BranchCreator,
     UserRsvp,
-    UserRsvpsList
+    UserRsvpsList,
+    BranchImage
 ]).component(name, {
     templateUrl,
     controllerAs: name,

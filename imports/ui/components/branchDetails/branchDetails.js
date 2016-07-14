@@ -6,6 +6,8 @@ import { Meteor } from 'meteor/meteor';
 
 import {Branches} from '../../../api/branches/index';
 import {name as UserUninvited} from '../userUninvited/userUninvited';
+import {name as StaffAdd } from '../staffAdd/staffAdd';
+import {name as StaffList } from '../staffList/staffList';
 
 
 import templateUrl from './branchDetails.html';
@@ -67,6 +69,8 @@ const name = 'branchDetails';
 export default angular.module(name, [
     angularMeteor, 
     uiRouter,
+    StaffAdd,
+    StaffList,
     UserUninvited
 ]).component(name, {
     templateUrl,

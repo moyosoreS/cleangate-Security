@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
 import buttonTemplateUrl from './branchAddButton.html';
-import modalTemplateUrl from './branchAddModal.html';
+import modalTemplate from './branchAddModal.html';
 import {name as BranchAdd} from "../branchAdd/branchAdd";
 
 class BranchAddButton{
@@ -23,7 +23,7 @@ class BranchAddButton{
                 }
             },
             controllerAs: 'branchAddModal',
-            template: modalTemplateUrl,
+            template: modalTemplate,
             targetEvent: event,
             parent: angular.element(document.body),
             clickOutsideToClose: true,

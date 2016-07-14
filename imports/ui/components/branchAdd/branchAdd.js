@@ -10,12 +10,14 @@ import {name as BranchUpload} from '../branchUpload/branchUpload';
 class BranchAdd{
     constructor(){
         this.branch = {};
+        
     }
     
     submit(){
-        console.log('submit:', this.party);
+        console.log('submit:', this.branch);
         this.branch.owner = Meteor.user()._id;
         Branches.insert(this.branch);
+        
         if(this.done) {
             this.done();
         }

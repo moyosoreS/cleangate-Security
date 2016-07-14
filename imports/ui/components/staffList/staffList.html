@@ -1,0 +1,57 @@
+<div layout="column" layout-padding="4">
+    <div>
+        <md-input-container>
+            <label>Search Staff</label>
+            <input ng-model="staffList.searchText">
+        </md-input-container>
+    </div>
+    <staff-sort on-change="staffList.sortChanged(sort)" property="id" order="1"></staff-sort>
+    <div layout="column" layout-gt-sm="row">
+        <table cellspacing="8" cellpadding="8" border="2" class="staffs">
+        <tbody>
+        <tr>
+            <th>Staff ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Sex</th>
+            <th>DOB</th>
+            <th>Telephone</th>
+            <th>Salary</th>
+            <th>Location Serviced</th>
+        </tr>
+        <tr dir-paginate="staff in staffList.staffs | itemsPerPage: staffList.perPage" total-items="staffList.staffsCount">
+            <td>
+                {{staff.id}}
+            </td>
+            <td>
+                {{staff.fName}}
+            </td>
+            <td>
+                {{staff.lName}}
+            </td>
+            <td>
+                {{staff.sex}}
+            </td>
+            <td>
+
+                {{staff.dob}}
+
+            </td>
+            <td>
+                {{staff.tel}}
+            </td>
+            <td>
+                {{staff.salary}}
+            </td>
+            <td>
+                {{staff.serviced}}
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+    </div>
+    <dir-pagination-controls on-page-change="staffList.pageChanged(newPageNumber)"></dir-pagination-controls>
+</div>

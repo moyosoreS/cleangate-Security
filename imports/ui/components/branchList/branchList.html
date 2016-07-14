@@ -6,14 +6,11 @@
       <i>Log in to create a branch!</i>
     </div>
 
-    <br><br>
-
-    <div flex layout="row" layout-padding>
+    <div>
         <md-input-container>
             <label>Search Branch</label>
             <input ng-model="branchList.searchText">
         </md-input-container>
-
     </div>
     <branch-sort on-change="branchList.sortChanged(sort)" property="id" order="1"></branch-sort>
     <div layout="column" layout-gt-sm="row">
@@ -28,6 +25,7 @@
         <th>Remove</th>
         <th>Branch Creator</th>
         <th>RSVP</th>
+        <th>Image</th>
     </tr>
     <tr dir-paginate="branch in branchList.branches | itemsPerPage: branchList.perPage" total-items="branchList.branchesCount">
         <td>
@@ -59,6 +57,15 @@
                 <strong>Warning!</strong>
                 Sign in to RSVP for this branch!
             </div>
+        </td>
+        <td>
+
+                <md-card-title-media ng-if="branch.images">
+                    <div class="md-media-lg card-media">
+                        <branch-image images="branch.images"></branch-image>
+                    </div>
+                </md-card-title-media>
+
         </td>
 
     </tr>

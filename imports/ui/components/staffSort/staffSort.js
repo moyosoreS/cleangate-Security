@@ -1,24 +1,24 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import templateUrl from './branchSort.html';
+import templateUrl from './staffSort.html';
 
-class BranchSort {
+class StaffSort {
     constructor(){
         this.changed();
     }
-    
+
     changed(){
         this.onChange({
             sort: {
                 [this.property]: parseInt(this.order)
-                
+
             }
         });
     }
 }
 
-const name ='branchSort';
+const name ='staffSort';
 
 export default angular.module([
     angularMeteor
@@ -30,5 +30,5 @@ export default angular.module([
         order: '@'
     },
     controllerAs: name,
-    controller: BranchSort
+    controller: StaffSort
 });

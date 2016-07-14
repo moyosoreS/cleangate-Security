@@ -41,6 +41,10 @@
 </div>
 
 <br><br>
+<staff-add ng-show="branchDetails.isLoggedIn"></staff-add>
+<staff-list></staff-list>
+
+<br><br>
 <ul>
     Users:
     <li ng-repeat="user in branchDetails.users">

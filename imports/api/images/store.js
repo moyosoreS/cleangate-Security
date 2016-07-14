@@ -9,7 +9,7 @@ export const ThumbsStore = new UploadFS.store.GridFS({          // Thumbstore to
         const gm = require('gm');
 
         gm(from, file.name)
-            .resize(32, 32)
+            .resize(3, 32)
             .gravity('Center')
             .extent(32, 32)
             .quality(75)
